@@ -41,6 +41,7 @@
 
 // module.exports = app;
 const usersRouter = require("./routes/users");
+const rolesRouter = require("./routes/roles");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -63,6 +64,7 @@ app.use(function (req, res, next) {
 });
 // define a root route
 app.use("/users", usersRouter);
+app.use("/roles", rolesRouter);
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
