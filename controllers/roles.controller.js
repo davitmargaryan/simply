@@ -2,8 +2,8 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 exports.findAll = async function (req, res) {
-  const users = await prisma.user.findMany();
-  res.json(users);
+  const roles = await prisma.role.findMany();
+  res.json(roles);
 };
 exports.create = async function (req, res) {
   try {
@@ -39,10 +39,11 @@ exports.create = async function (req, res) {
 //     );
 //   }
 // };
-// exports.delete = function (req, res) {
-//   console.log(req, "body");
-//   User.delete(req.params.id, function (err, user) {
-//     if (err) res.send(err);
-//     res.json({ error: false, message: "User successfully deleted" });
+// exports.delete = async function (req, res) {
+//   await prisma.user.delete({
+//     where: {
+//       id: +req.params.id,
+//     },
 //   });
+//   res.json({ error: false, message: "User successfully deleted" });
 // };
